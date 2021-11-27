@@ -60,7 +60,6 @@ function onSubmit(event) {
     console.log(totalP);
     console.log(totalt);
 
-    index++;
     //creando un elemento html para agregarlo a tbody
     // const tr = document.createElement("tr");
     // Guardar datos dentro del objeto que no son visibles para el usuario
@@ -78,7 +77,16 @@ function onSubmit(event) {
         <td>${quantity}</td>
         <td>${price}</td>
         <td>${total}</td>
-        <td><a href='#' onclick='onEdit(event)'>Editar</a> | <a href='#' onclick='onDelete(event)'>Eliminar</a></td>
+        <td>
+            <div class="btn-group">
+                <a title="Editar" href='#' onclick='onEdit(event)' class="btn btn-sm btn-outline-secondary">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a title="Eliminar" href='#' onclick='onDelete(event)' class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash-fill"></i>
+                </a>
+            </div>
+        </td>
     `;
 
     //Agregar datos a la tabla del form
@@ -100,8 +108,8 @@ function onEdit(event) {
     event.preventDefault();
 
     /** @type {HTMLElement} */
-    const anchor = event.target;
-    const tr = anchor.parentElement.parentElement;
+    const anchor = event.currentTarget;
+    const tr = anchor.parentElement.parentElement.parentElement;
     const cells = tr.getElementsByTagName("td");
     const [tdCode, tdName, tdQuantity, tdPrice] = cells;
 
@@ -123,7 +131,7 @@ function onDelete(event) {
     event.preventDefault();
 
     /** @type {HTMLElement} */
-    const anchor = event.target;
-    const tr = anchor.parentElement.parentElement;
+    const anchor = event.currentTarget;
+    const tr = anchor.parentElement.parentElement.parentElement;
     tbody.removeChild(tr);
 }
