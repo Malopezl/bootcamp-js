@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bootcamp - Primera aplicacion</title>
+    </head>
+    <body>
+        <form action="index.html">
+            <input type="hidden" name="code" id="code">
+            <div>
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="txt">
+            </div>
+            <div>
+                <label for="quantity">Cantidad</label>
+                <input type="number" name="quantity" id="qt">
+            </div>
+            <div>
+                <label for="price">Precio</label>
+                <input type="number" name="price" id="pr">
+            </div>
+            <div>
+                <label for="category">Categoria</label>
+                <select name="category" id="cat">
+                    <option value="1">Categoria 1</option>
+                    <option value="2">Categoria 2</option>
+                    <option value="3">Categoria 3</option>
+                    <option value="4">Categoria 4</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Nombre</td>
+                        <td>Cantidad</td>
+                        <td>Precio</td>
+                        <td>Total</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Totales:</td>
+                        <td id="total-quantity">0</td>
+                        <td id="total-price">0</td>
+                        <td id="total">0</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
