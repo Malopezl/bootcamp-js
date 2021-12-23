@@ -1,0 +1,18 @@
+{
+  "name": "jsapp_01",
+  "version": "1.0.0",
+  "description": "Ejercicios realizados durante el bootcamp de JS, NodeJS y React 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.7.0",
+    "redux": "^4.1.2"
+  }
+}
