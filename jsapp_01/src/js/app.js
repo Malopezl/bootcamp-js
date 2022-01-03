@@ -1,14 +1,18 @@
+import { applyMiddleware, createStore } from "redux";
+import { ui } from "./ui";
+import * as $store from "./store";
+
 const preloadedState = {
     producto: {},
     productos: []
 };
 
-const middlewares = Redux.applyMiddleware(
-    loggerMiddleware,
-    agregarOModificarProductoMiddleware,
-    generadorCodigoProductoBuilder(0),
+const middlewares = applyMiddleware(
+    $store.loggerMiddleware,
+    $store.agregarOModificarProductoMiddleware,
+    $store.generadorCodigoProductoBuilder(0),
 );
-const store = Redux.createStore(reducer, preloadedState, middlewares);
+const store = createStore($store.reducer, preloadedState, middlewares);
 
 // let latestState;
 
@@ -27,11 +31,11 @@ store.subscribe(dispatchOnChange(store, (state) => {
 }))
 
 // En un arrow function si solo es 1 parametro no es necesario los parentesis
-ui.onFormSubmit = (producto) => store.dispatch(agregarOModificarProducto(producto));
+ui.onFormSubmit = (producto) => store.dispatch($store.agregarOModificarProducto(producto));
 
-ui.onEliminarClick = (code) => store.dispatch(productoEliminado(code));
+ui.onEliminarClick = (code) => store.dispatch($store.productoEliminado(code));
 
-ui.onEditarClick = (code) => store.dispatch(productoSeleccionado(code));
+ui.onEditarClick = (code) => store.dispatch($store.productoSeleccionado(code));
 
 function dispatchOnChange(store, dispatch) {
     let latestState;
