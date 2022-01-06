@@ -1,0 +1,41 @@
+### Home
+GET http://localhost:5000/
+
+### Obtener Productos
+GET http://localhost:5000/productos
+# Authorization: hola-mundo
+
+### Obtener Producto
+GET http://localhost:5000/productos/2
+# Authorization: hola-mundo
+
+### Crear Producto
+POST http://localhost:5000/productos
+# Authorization: hola-mundo
+Content-Type: application/json
+
+{
+    "nombre": "Producto B",
+    "cantidad": 2,
+    "precio": 4
+}
+
+### Modificar Producto
+PUT http://localhost:5000/productos/2
+# Authorization: hola-mundo
+Content-Type: application/json
+
+{
+    "nombre": "abc",
+    "cantidad": 5,
+    "precio": 10
+}
+
+### Eliminar Producto
+DELETE http://localhost:5000/productos/4
+# Authorization: hola-mundo
+
+
+### Filtrar Productos
+GET http://localhost:5000/productos?filter=abc
+# Authorization: hola-mundo
