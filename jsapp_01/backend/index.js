@@ -8,7 +8,8 @@ let productos = [
         nombre: "Producto A",
         cantidad: 2,
         precio: 4,
-        codigo: lastId
+        codigo: lastId,
+        total: 8
     }
 ];
 
@@ -46,7 +47,8 @@ app.get("/productos/:codigo", (req, res) => {
 app.post("/productos", (req, res) => {
     // console.log("body: ", req.body);
     lastId++;
-    const producto = { ...req.body, codigo: lastId };
+    const { cantidad, precio} = req.body;
+    const producto = { ...req.body, codigo: lastId, total: cantidad * precio };
     productos.push(producto);
     res.status(201);
     res.json(producto);
@@ -60,8 +62,9 @@ app.put("/productos/:codigo", (req, res) => {
         res.status(404);
         res.json({ mensaje: "No existe algun producto con el codigo: " + codigo });
     } else {
+        const { cantidad, precio} = req.body;
         const index = productos.indexOf(producto);
-        const nuevoProducto = productos[index] = { ...req.body, codigo };
+        const nuevoProducto = productos[index] = { ...req.body, codigo, total: cantidad * precio };
         res.status(200);
         res.json(nuevoProducto);
     }

@@ -21,7 +21,7 @@ const preloadedState = {
     productos: []
 };
 
-let index = 0;
+let index = 100;
 const reducer = (state, action) => {
     if (action.type == "producto:agregado") {
         index++;
