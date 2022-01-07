@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDom from "react-dom";
-import { Provider } from "react-redux"
+import { Provider } from "react-redux";
+import axios from "axios";
 import App from "./app";
 import store from "./store";
 
@@ -13,7 +14,7 @@ ReactDom.render(
     rootElement);
 
 console.log("Antes del fetch");
-const promesa = fetch('http://localhost:5000/productos');
+const promesa = axios.get('http://localhost:5000/productos');
 
 let productos = null;
 
@@ -24,18 +25,10 @@ let productos = null;
 * que estan fuera de la promesa.
 */
 promesa
-    // este then lee el body del response y lo pasa al siguiente
-    .then((response) => {
-        return response.json();
-    })
-    // este then recibe el json del then anterior
-    .then((response) => {
-        productos = response;
+    .then(response => response.data)
+    .then((data) => {
+        productos = data;
         console.log("success: ", productos);
-        return "success";
-    })
-    .then((p) => {
-        console.log('tercer then: ', p);
     })
     .catch(() => {
         console.log("error");
