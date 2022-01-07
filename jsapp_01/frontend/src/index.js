@@ -18,7 +18,7 @@ test();
 async function test() {
     try {
         console.log("Antes del fetch");
-        const response = await axios.get('http://localhost:5000/producto');
+        const response = await axios.get('http://localhost:5000/productos');
         const productos = response.data;
         console.log("productos: ", productos);
         console.log("Luego del fetch ", productos);
