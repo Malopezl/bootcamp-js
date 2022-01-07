@@ -13,25 +13,16 @@ ReactDom.render(
     </Provider>,
     rootElement);
 
-console.log("Antes del fetch");
-const promesa = axios.get('http://localhost:5000/productos');
+test();
 
-let productos = null;
-
-/*
-* Una promesa se ejecuta en segundo plano,
-* por lo que el codigo dentro de la promesa no se ejecuta
-* hasta que ya se ejecutaron todas las lineas de codigo
-* que estan fuera de la promesa.
-*/
-promesa
-    .then(response => response.data)
-    .then((data) => {
-        productos = data;
-        console.log("success: ", productos);
-    })
-    .catch(() => {
-        console.log("error");
-    });
-
-console.log("Luego del fetch ", productos);
+async function test() {
+    try {
+        console.log("Antes del fetch");
+        const response = await axios.get('http://localhost:5000/producto');
+        const productos = response.data;
+        console.log("productos: ", productos);
+        console.log("Luego del fetch ", productos);
+    } catch (error) {
+        console.log("error en el request: ", error);
+    }
+}
