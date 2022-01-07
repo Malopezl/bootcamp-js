@@ -1,31 +1,28 @@
 import axios from "axios";
 
-async function all() {
-    const response = await axios.get('http://localhost:5000/productos/');
+const url = 'http://localhost:5000/productos/';
+
+async function request(httpCall) {
+    const response = await httpCall();
     return response.data;
 }
 
-async function single(codigo) {
-    const response = await axios.get('http://localhost:5000/productos/' + codigo);
-    return response.data;
-}
+const all = () => request(() => axios.get(url));
+const single = (codigo) => request(() => axios.get(url + codigo));
+const add = (producto) => request(() => axios.post(url, producto));
 
-async function add(producto) {
-    const response = await axios.post('http://localhost:5000/productos/', producto);
-    return response.data;
-}
+/*
+* notas:
+* ({ codigo, ...producto })
+* se hizo de esta manera para separar lo que viene del objeto en codigo
+* y lo demas se guardara en la variable producto.
+* Ej de objeto:
+* { codigo: 1, nombre: "producto b", cantidad: 5, precio: 10 }
+*/
+const update = ({ codigo, ...producto }) => request(() => axios.put(url + codigo, producto));
+const remove = (codigo) => request(() => axios.delete(url + codigo));
 
-async function update(producto) {
-    const response = await axios.put('http://localhost:5000/productos/' + producto.codigo, producto);
-    return response.data;
-}
-
-async function remove(codigo) {
-    const response = await axios.delete('http://localhost:5000/productos/' + codigo);
-    return response.data;
-}
-
-export {
+export default{
     all,
     single,
     add,

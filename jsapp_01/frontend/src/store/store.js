@@ -6,6 +6,7 @@ const ActionTypes = {
     ProductoEliminado: "producto:eliminado",
     ProductoSeleccionado: "producto:seleccionado",
     ProductoAgregadoModificado: "producto:agregado:o:modificado",
+    AsignarProductos: "asignar-productos"
 }
 
 export const reducer = (state, action) => {
@@ -20,8 +21,14 @@ export const reducer = (state, action) => {
         case ActionTypes.ProductoEliminado:
             return productoEliminadoReducer(state, action);
 
-        case ActionTypes.ProductoSeleccionado: {
+        case ActionTypes.ProductoSeleccionado:
             return productoSeleccionadoReducer(state, action);
+
+        case ActionTypes.AsignarProductos: {
+            return {
+                ...state,
+                productos: action.payload
+            };
         }
 
         default:
