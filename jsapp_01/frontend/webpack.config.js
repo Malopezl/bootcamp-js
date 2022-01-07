@@ -20,7 +20,7 @@ module.exports = {
     // especificar cuanto debe optimizar el codigo
     mode: mode,
     devServer: {
-        port: 5000,
+        port: 5001,
         open: true,
         /*
         * para que el servidor sepa que se hara un hot reload
