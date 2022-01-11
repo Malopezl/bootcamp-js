@@ -9,19 +9,19 @@ const ActionTypes = {
     AsignarProductos: "asignar-productos"
 }
 
-export const reducer = (state, action) => {
-
+export const producto = (state = {}, action) => {
     switch (action.type) {
         case ActionTypes.ProductoSeleccionado:
-            return productoSeleccionadoReducer(state, action);
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
-        case ActionTypes.AsignarProductos: {
-            return {
-                ...state,
-                productos: action.payload
-            };
-        }
-
+export const productos = (state = [], action) => {
+    switch (action.type) {
+        case ActionTypes.AsignarProductos:
+            return action.payload;
         default:
             return state;
     }

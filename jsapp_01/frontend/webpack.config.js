@@ -15,7 +15,7 @@ module.exports = {
     output: {
         filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, "dist"),
-        publicPath: ""
+        publicPath: "/"
     },
     // especificar cuanto debe optimizar el codigo
     mode: mode,
@@ -26,7 +26,12 @@ module.exports = {
         * para que el servidor sepa que se hara un hot reload
         * y no recargue toda la pagina.
         */
-        hot: true
+        hot: true,
+        /*
+        * esto sirve para que si se entra a un path que no existe
+        * redirija al index.
+        */
+        historyApiFallback: true
     },
     // especificar modulos
     module: {
