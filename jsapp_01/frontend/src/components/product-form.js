@@ -29,7 +29,7 @@ const ProductForm = () =>{
             nombre: producto.nombre || '',
             cantidad: producto.cantidad || '',
             precio: producto.precio || '',
-            categoria: producto.precio || 1
+            categoria: producto.categoria || 1
         })
 
         if (codigo != producto.codigo) {

@@ -6,7 +6,7 @@ GET http://localhost:5000/productos
 # Authorization: hola-mundo
 
 ### Obtener Producto
-GET http://localhost:5000/productos/2
+GET http://localhost:5000/productos/61e22188ec2d285b300bbfc3
 # Authorization: hola-mundo
 
 ### Crear Producto
@@ -15,24 +15,26 @@ POST http://localhost:5000/productos
 Content-Type: application/json
 
 {
-    "nombre": "Producto C",
-    "cantidad": 2,
-    "precio": 5
+    "nombre": "Producto B",
+    "categoria": 3,
+    "cantidad": 10,
+    "precio": 1
 }
 
 ### Modificar Producto
-PUT http://localhost:5000/productos/2
+PUT http://localhost:5000/productos/61e21c565f2250267fd2bb53
 # Authorization: hola-mundo
 Content-Type: application/json
 
 {
     "nombre": "abc",
     "cantidad": 5,
-    "precio": 10
+    "precio": 10,
+    "categoria": 1
 }
 
 ### Eliminar Producto
-DELETE http://localhost:5000/productos/4
+DELETE http://localhost:5000/productos/61e223810eb78c2155ae9c4a
 # Authorization: hola-mundo
 
 
